@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Tokyo 6-day Trip Itinerary</name>
+  <Folder><name>Day 1</name>
+    <Placemark><name>淺草寺・雷門</name><description>文化 - 東京最古老的寺廟與地標雷門</description></Placemark>
+    <Placemark><name>仲見世商店街</name><description>購物 - 傳統小吃與伴手禮街道</description></Placemark>
+    <Placemark><name>隅田公園</name><description>自然 - 河畔公園，可觀晴空塔景</description></Placemark>
+    <Placemark><name>東京晴空塔</name><description>地標 - 觀景台、夜景、Solamachi 商場</description></Placemark>
+    <Placemark><name>墨田水族館</name><description>室內景點 - 晴空塔內的現代水族館</description></Placemark>
+  </Folder>
+  <Folder><name>Day 2</name>
+    <Placemark><name>上野恩賜公園</name><description>自然 - 都會綠洲，有櫻花與池塘</description></Placemark>
+    <Placemark><name>東京國立博物館</name><description>文化 - 日本最大博物館</description></Placemark>
+    <Placemark><name>阿美橫町</name><description>購物 - 熱鬧商店街、藥妝與小吃</description></Placemark>
+    <Placemark><name>秋葉原無線電會館</name><description>動漫 - 動漫周邊與模型聖地</description></Placemark>
+    <Placemark><name>MANDARAKE COMPLEX</name><description>動漫 - 二手動漫寶庫</description></Placemark>
+    <Placemark><name>GINZA SIX</name><description>購物 - 大型複合商場與屋頂花園</description></Placemark>
+  </Folder>
+  <Folder><name>Day 3</name>
+    <Placemark><name>鶴岡八幡宮</name><description>神社 - 鎌倉最具代表神社</description></Placemark>
+    <Placemark><name>小町通商店街</name><description>購物 - 特色小吃與伴手禮街</description></Placemark>
+    <Placemark><name>長谷寺</name><description>寺廟 - 庭園與觀音像著名</description></Placemark>
+    <Placemark><name>鎌倉大佛</name><description>地標 - 日本國寶，象徵鎌倉</description></Placemark>
+    <Placemark><name>鎌倉高校前平交道</name><description>動漫聖地 - 《灌籃高手》取景地</description></Placemark>
+  </Folder>
+  <Folder><name>Day 4</name>
+    <Placemark><name>河口湖天上山公園纜車</name><description>景觀 - 觀富士山全景</description></Placemark>
+    <Placemark><name>河口湖遊覽船</name><description>體驗 - 湖上觀景與逆富士倒影</description></Placemark>
+    <Placemark><name>大石公園</name><description>自然 - 花海與富士山合影地</description></Placemark>
+    <Placemark><name>新倉富士淺間神社</name><description>神社 - 五重塔與富士山絕景</description></Placemark>
+  </Folder>
+  <Folder><name>Day 5</name>
+    <Placemark><name>表參道之丘</name><description>建築 - 安藤忠雄設計商場</description></Placemark>
+    <Placemark><name>裏原宿</name><description>潮流 - 獨立服飾與古著店</description></Placemark>
+    <Placemark><name>Kiddy Land</name><description>購物 - 玩具與卡通周邊</description></Placemark>
+    <Placemark><name>下北澤東洋百貨店</name><description>古著 - 多家古著與雜貨集成店</description></Placemark>
+    <Placemark><name>Mikan 下北</name><description>文青空間 - 複合書店與咖啡區</description></Placemark>
+  </Folder>
+  <Folder><name>Day 6</name>
+    <Placemark><name>森美術館</name><description>藝術 - 當代藝術展覽</description></Placemark>
+    <Placemark><name>Tokyo City View</name><description>觀景 - 夜景與東京鐵塔視角</description></Placemark>
+    <Placemark><name>毛利庭園</name><description>庭園 - 日式庭園與自然景觀</description></Placemark>
+    <Placemark><name>國立新美術館</name><description>藝術 - 黑川紀章設計，特展豐富</description></Placemark>
+  </Folder>
+</Document></kml>
