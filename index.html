@@ -1,19 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>東京六日遊（11月・自由行）完整指南</title>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="東京六日遊 — 自由行完整版（含地圖檔）">
+<meta property="og:description" content="11月東京六日行程：動線優化、富士山河口湖、鎌倉、上野/秋葉原/銀座、表參道/下北澤；附 KML/CSV 匯入 My Maps。">
+<meta property="og:image" content="REPLACE_SITE_URL/og-image.png">
+<meta property="og:url" content="REPLACE_SITE_URL">
+<meta property="og:locale" content="zh_TW">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="東京六日遊 — 自由行完整版（含地圖檔）">
+<meta name="twitter:description" content="11月東京六日行程：動線優化、富士山河口湖、鎌倉、上野/秋葉原/銀座、表參道/下北澤；附 KML/CSV 匯入 My Maps。">
+<meta name="twitter:image" content="REPLACE_SITE_URL/og-image.png">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "東京六日遊 — 自由行完整版",
+  "description": "11月東京六日行程：動線優化、富士山河口湖、鎌倉、上野/秋葉原/銀座、表參道/下北澤。",
+  "itinerary": [
+    {"@type":"TouristAttraction","name":"Tokyo Skytree"},
+    {"@type":"TouristAttraction","name":"Ueno Park"},
+    {"@type":"TouristAttraction","name":"Akihabara"},
+    {"@type":"TouristAttraction","name":"Ginza SIX"},
+    {"@type":"TouristAttraction","name":"Kamakura (Tsurugaoka Hachimangu, Hase-dera, Daibutsu)"},
+    {"@type":"TouristAttraction","name":"Lake Kawaguchiko"},
+    {"@type":"TouristAttraction","name":"Omotesando & Shimokitazawa"},
+    {"@type":"TouristAttraction","name":"Roppongi Hills & Mori Art Museum"}
+  ]
+}
+</script>
+
 <style>
-  :root{
-    --bg:#0b0c10;
-    --card:#111317;
-    --muted:#8892b0;
-    --text:#e6edf3;
-    --accent:#64ffda;
-    --accent2:#4ea1ff;
-  }
+  :root{ --bg:#0b0c10; --card:#111317; --muted:#8892b0; --text:#e6edf3; --accent:#64ffda; --accent2:#4ea1ff; }
   html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}
   a{color:var(--accent2);text-decoration:none} a:hover{opacity:.9;text-decoration:underline}
   .wrap{max-width:980px;margin:0 auto;padding:24px}
@@ -22,20 +49,13 @@
   .meta{color:var(--muted);font-size:14px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
   .card{background:var(--card);border:1px solid #1f2330;border-radius:14px;padding:16px}
-  h2{margin-top:28px}
-  h3{margin-top:18px}
-  .badge{display:inline-block;padding:2px 8px;border:1px solid #2a3245;border-radius:999px;color:var(--accent);font-size:12px;margin-right:6px}
+  h2{margin-top:28px} h3{margin-top:18px}
   .table{width:100%;border-collapse:collapse;margin-top:8px}
   .table th,.table td{border:1px solid #242a3a;padding:8px;vertical-align:top}
   .table th{background:#151925}
-  .muted{color:var(--muted)}
-  .toc a{display:block;padding:6px 0}
-  .note{font-size:14px;color:var(--muted)}
+  .muted{color:var(--muted)} .day{border-left:3px solid var(--accent2);padding-left:12px;margin:18px 0}
   .cta{display:inline-block;background:var(--accent);color:#001316;padding:10px 14px;border-radius:10px;font-weight:600;margin-right:10px}
-  .tag{display:inline-block;border:1px solid #2a3245;border-radius:6px;padding:2px 6px;margin-right:6px;color:#9fb3c8}
-  footer{margin:40px 0;color:var(--muted);font-size:13px}
-  ul,ol{padding-left:18px}
-  .day{border-left:3px solid var(--accent2);padding-left:12px;margin:18px 0}
+  .note{font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -43,28 +63,23 @@
   <header>
     <h1>東京六日遊（動線優化＋休閒平衡）— 11 月・自由行完整版</h1>
     <div class="meta">住宿：押上 3 晚（Richmond Hotel Premier Tokyo Schole）｜新宿 3 晚（JR九州 Blossom Shinjuku）<br>
-      抵達：成田（約 14:00）｜離境：成田 13:00 班機</div>
+    抵達：成田（約 14:00）｜離境：成田 13:00 班機</div>
   </header>
 
   <div class="grid">
     <div class="card">
       <h3>快速下載</h3>
-      <p><a class="cta" href="tokyo_itinerary_per_day.kml">下載 KML（My Maps 分日）</a>
-         <a class="cta" href="tokyo_itinerary_places_enhanced.csv">下載 CSV（自訂顏色）</a></p>
-      <p class="note">將本檔與 KML/CSV 放在同資料夾即可直接點上方連結（若在 ChatGPT 下載區，請從對話檔案區點擊下載）。</p>
+      <p><a class="cta" href="tokyo_itinerary_per_day.kml" download>下載 KML（My Maps 分日）</a>
+         <a class="cta" href="tokyo_itinerary_places_enhanced.csv" download>下載 CSV（自訂顏色）</a></p>
+      <p class="note">把本頁、KML、CSV 一起上傳到同個網站/資料夾，按上方按鈕即可下載。</p>
     </div>
     <div class="card">
-      <h3>如何使用</h3>
-      <div class="tag">My Maps</div><div class="tag">離線友善</div><div class="tag">可列印</div>
+      <h3>如何分享本頁</h3>
       <ol>
-        <li>前往 <a href="https://www.google.com/mymaps" target="_blank" rel="noopener">Google My Maps</a> → 建立新地圖。</li>
-        <li>點「匯入」：
-          <ul>
-            <li><strong>KML</strong>：自動分成 Day 1～Day 6 圖層與顏色。</li>
-            <li><strong>CSV</strong>：可用「以 Day 欄位分顏色」自訂樣式。</li>
-          </ul>
-        </li>
-        <li>完成後可分享連結到手機 Google Maps 導航。</li>
+        <li>到 GitHub 建 repo（例如 <code>tokyo-trip</code>），上傳 <code>index.html</code>、<code>og-image.png</code>、KML、CSV。</li>
+        <li>Settings → Pages → Branch 選 <code>main</code> → Save（啟用 GitHub Pages）。</li>
+        <li>把本檔 <code>index.html</code> 內的 <code>REPLACE_SITE_URL</code> 改成實際網址（例如 <code>https://你的帳號.github.io/tokyo-trip</code>）。</li>
+        <li>重新整理後，分享該網址即可在 LINE / FB / X 顯示預覽卡片。</li>
       </ol>
     </div>
   </div>
@@ -145,17 +160,7 @@
     </tbody>
   </table>
 
-  <h2>🧳 行李與天氣</h2>
-  <ul>
-    <li>11 月白天約 10–18°C，早晚偏涼，建議外套＋圍巾。</li>
-    <li>Day3 換飯店可用 TA-Q-BIN 宅配行李服務直送新宿。</li>
-    <li>Suica / Pasmo：機場或便利店可加值，全程使用。</li>
-  </ul>
-
-  <footer>
-    產生日期：2025-10-07．本頁提供之交通時間為一般參考，實際以官方公告與當日班次為準。<br>
-    附檔：在同資料夾下載 <code>tokyo_itinerary_per_day.kml</code>、<code>tokyo_itinerary_places_enhanced.csv</code> 以便匯入 Google My Maps。
-  </footer>
+  <p class="muted" style="margin:40px 0 20px;">產生日期：2025-10-07．交通時間僅供參考，請以官方當日班次為準。</p>
 </div>
 </body>
 </html>
