@@ -479,7 +479,17 @@
       const rateEl = document.getElementById('exchangeRate');
       if (!rateEl) return;
 
-      const RATE_ENDPOINT = 'https://api.exchangerate.host/latest?base=TWD&symbols=JPY';
+      const RATE_SOURCES = [
+        {
+          url: 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/twd/jpy.json',
+          resolve: (payload) => payload && payload.jpy
+        },
+        {
+          url: 'https://api.exchangerate.host/latest?base=TWD&symbols=JPY',
+          resolve: (payload) => payload && payload.rates && payload.rates.JPY
+        }
+      ];
+
       const numberFormatter = new Intl.NumberFormat('zh-Hant', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
@@ -491,25 +501,34 @@
         timeZone: 'Asia/Taipei'
       });
 
+      async function fetchRateWithFallback() {
+        for (const source of RATE_SOURCES) {
+          try {
+            const response = await fetch(source.url, { cache: 'no-store' });
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}`);
+            }
+            const payload = await response.json();
+            const rate = source.resolve(payload);
+            if (typeof rate === 'number' && Number.isFinite(rate)) {
+              return rate;
+            }
+            throw new Error('Unexpected payload structure');
+          } catch (error) {
+            console.warn('Exchange rate source failed', source.url, error);
+          }
+        }
+        throw new Error('All exchange rate sources failed');
+      }
+
       async function updateRate() {
         try {
-          const response = await fetch(RATE_ENDPOINT);
-          if (!response.ok) {
-            throw new Error(`Network response was not ok (${response.status})`);
-          }
-          const data = await response.json();
-          const rate = data && data.rates && data.rates.JPY;
-
-          if (typeof rate === 'number') {
-            const formattedRate = numberFormatter.format(rate);
-            const now = new Date();
-            const formattedTime = timeFormatter.format(now);
-            rateEl.innerHTML = `<span>1 TWD ≈ <strong>${formattedRate}</strong> JPY</span><span class="rate-updated">更新 ${formattedTime}</span>`;
-            rateEl.setAttribute('title', `更新時間（台北）：${formattedTime}`);
-            return;
-          }
-
-          throw new Error('Invalid rate data received');
+          const rate = await fetchRateWithFallback();
+          const formattedRate = numberFormatter.format(rate);
+          const now = new Date();
+          const formattedTime = timeFormatter.format(now);
+          rateEl.innerHTML = `<span>1 TWD ≈ <strong>${formattedRate}</strong> JPY</span><span class="rate-updated">更新 ${formattedTime}</span>`;
+          rateEl.setAttribute('title', `更新時間（台北）：${formattedTime}`);
         } catch (error) {
           console.error('Failed to fetch exchange rate', error);
           rateEl.textContent = '匯率暫時無法取得';
