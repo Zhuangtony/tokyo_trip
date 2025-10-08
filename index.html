@@ -90,6 +90,37 @@
       align-items: center;
     }
 
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .exchange-rate {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--muted-text);
+      font-size: 14px;
+      box-shadow: var(--card-shadow);
+      min-width: max-content;
+    }
+
+    .exchange-rate strong {
+      color: var(--accent-strong);
+      font-size: 15px;
+    }
+
+    .exchange-rate .rate-updated {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
     h1 {
       font-size: clamp(26px, 4vw, 40px);
       line-height: 1.2;
@@ -280,6 +311,10 @@
         padding: 24px 18px 40px;
       }
 
+      .header-actions {
+        align-items: flex-start;
+      }
+
       table,
       th,
       td {
@@ -293,10 +328,13 @@
     <header>
       <div class="header-top">
         <h1>東京六日遊（動線優化＋休閒平衡）— 11 月・自由行「詳盡版」</h1>
-        <button id="themeToggle" class="theme-toggle" type="button" aria-label="切換黑白背景">
-          <span aria-hidden="true">🌓</span>
-          <span class="toggle-text">黑底</span>
-        </button>
+        <div class="header-actions">
+          <div id="exchangeRate" class="exchange-rate" aria-live="polite">匯率載入中…</div>
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="切換黑白背景">
+            <span aria-hidden="true">🌓</span>
+            <span class="toggle-text">黑底</span>
+          </button>
+        </div>
       </div>
       <div class="meta">
         住宿：押上 3 晚（Richmond Hotel Premier Tokyo Schole）｜新宿 3 晚（JR九州 Blossom Shinjuku）<br>
@@ -435,6 +473,52 @@
         localStorage.setItem('tokyo-trip-theme', newTheme);
         applyTheme(newTheme);
       });
+    })();
+
+    (function () {
+      const rateEl = document.getElementById('exchangeRate');
+      if (!rateEl) return;
+
+      const RATE_ENDPOINT = 'https://api.exchangerate.host/latest?base=TWD&symbols=JPY';
+      const numberFormatter = new Intl.NumberFormat('zh-Hant', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      const timeFormatter = new Intl.DateTimeFormat('zh-Hant', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Taipei'
+      });
+
+      async function updateRate() {
+        try {
+          const response = await fetch(RATE_ENDPOINT);
+          if (!response.ok) {
+            throw new Error(`Network response was not ok (${response.status})`);
+          }
+          const data = await response.json();
+          const rate = data && data.rates && data.rates.JPY;
+
+          if (typeof rate === 'number') {
+            const formattedRate = numberFormatter.format(rate);
+            const now = new Date();
+            const formattedTime = timeFormatter.format(now);
+            rateEl.innerHTML = `<span>1 TWD ≈ <strong>${formattedRate}</strong> JPY</span><span class="rate-updated">更新 ${formattedTime}</span>`;
+            rateEl.setAttribute('title', `更新時間（台北）：${formattedTime}`);
+            return;
+          }
+
+          throw new Error('Invalid rate data received');
+        } catch (error) {
+          console.error('Failed to fetch exchange rate', error);
+          rateEl.textContent = '匯率暫時無法取得';
+          rateEl.removeAttribute('title');
+        }
+      }
+
+      updateRate();
+      setInterval(updateRate, 30 * 60 * 1000);
     })();
   </script>
 </body>
