@@ -90,6 +90,37 @@
       align-items: center;
     }
 
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .exchange-rate {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--muted-text);
+      font-size: 14px;
+      box-shadow: var(--card-shadow);
+      min-width: max-content;
+    }
+
+    .exchange-rate strong {
+      color: var(--accent-strong);
+      font-size: 15px;
+    }
+
+    .exchange-rate .rate-updated {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
     h1 {
       font-size: clamp(26px, 4vw, 40px);
       line-height: 1.2;
@@ -280,6 +311,10 @@
         padding: 24px 18px 40px;
       }
 
+      .header-actions {
+        align-items: flex-start;
+      }
+
       table,
       th,
       td {
@@ -293,10 +328,13 @@
     <header>
       <div class="header-top">
         <h1>東京六日遊（動線優化＋休閒平衡）— 11 月・自由行「詳盡版」</h1>
-        <button id="themeToggle" class="theme-toggle" type="button" aria-label="切換黑白背景">
-          <span aria-hidden="true">🌓</span>
-          <span class="toggle-text">黑底</span>
-        </button>
+        <div class="header-actions">
+          <div id="exchangeRate" class="exchange-rate" aria-live="polite">匯率載入中…</div>
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="切換黑白背景">
+            <span aria-hidden="true">🌓</span>
+            <span class="toggle-text">黑底</span>
+          </button>
+        </div>
       </div>
       <div class="meta">
         住宿：押上 3 晚（Richmond Hotel Premier Tokyo Schole）｜新宿 3 晚（JR九州 Blossom Shinjuku）<br>
@@ -415,16 +453,28 @@
   <script>
     (function () {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const storedTheme = localStorage.getItem('tokyo-trip-theme');
+      let storedTheme = null;
+      try {
+        storedTheme = localStorage.getItem('tokyo-trip-theme');
+      } catch (error) {
+        console.warn('Theme preference unavailable', error);
+      }
       const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
       const root = document.documentElement;
       const toggleBtn = document.getElementById('themeToggle');
+      if (!toggleBtn) {
+        root.dataset.theme = initialTheme;
+        return;
+      }
+
       const toggleText = toggleBtn.querySelector('.toggle-text');
 
       function applyTheme(theme) {
         const isDark = theme === 'dark';
         root.dataset.theme = theme;
-        toggleText.textContent = isDark ? '黑底' : '白底';
+        if (toggleText) {
+          toggleText.textContent = isDark ? '黑底' : '白底';
+        }
         toggleBtn.setAttribute('aria-pressed', String(isDark));
       }
 
@@ -432,9 +482,147 @@
 
       toggleBtn.addEventListener('click', () => {
         const newTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('tokyo-trip-theme', newTheme);
+        try {
+          localStorage.setItem('tokyo-trip-theme', newTheme);
+        } catch (error) {
+          console.warn('Unable to persist theme preference', error);
+        }
         applyTheme(newTheme);
       });
+    })();
+
+    (function () {
+      const rateEl = document.getElementById('exchangeRate');
+      if (!rateEl) return;
+
+      const RATE_SOURCES = [
+        {
+          url: 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/twd/jpy.json',
+          resolve: (payload) => payload && payload.jpy
+        },
+        {
+          url: 'https://api.exchangerate.host/latest?base=TWD&symbols=JPY',
+          resolve: (payload) => payload && payload.rates && payload.rates.JPY
+        },
+        {
+          url: 'https://open.er-api.com/v6/latest/TWD',
+          resolve: (payload) => payload && payload.rates && payload.rates.JPY
+        }
+      ];
+
+      let storage = null;
+      try {
+        storage = window.localStorage;
+      } catch (error) {
+        console.warn('Local storage unavailable for exchange rate cache', error);
+      }
+
+      const CACHE_KEY = 'tokyo-trip-exchange-rate';
+      const CACHE_TTL = 12 * 60 * 60 * 1000; // 12 小時
+      const FETCH_TIMEOUT = 10 * 1000;
+
+      const numberFormatter = new Intl.NumberFormat('zh-Hant', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      const timeFormatter = new Intl.DateTimeFormat('zh-Hant', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Taipei'
+      });
+
+      function readCachedRate() {
+        try {
+          if (!storage) return null;
+          const cachedRaw = storage.getItem(CACHE_KEY);
+          if (!cachedRaw) return null;
+          const cached = JSON.parse(cachedRaw);
+          if (!cached || typeof cached.rate !== 'number' || typeof cached.timestamp !== 'number') {
+            return null;
+          }
+          return cached;
+        } catch (error) {
+          console.warn('Failed to read cached exchange rate', error);
+          return null;
+        }
+      }
+
+      function writeCachedRate(rate) {
+        try {
+          const payload = JSON.stringify({ rate, timestamp: Date.now() });
+          if (!storage) return;
+          storage.setItem(CACHE_KEY, payload);
+        } catch (error) {
+          console.warn('Failed to cache exchange rate', error);
+        }
+      }
+
+      function renderRate(rate, timestamp, { isFallback = false } = {}) {
+        const formattedRate = numberFormatter.format(rate);
+        const formattedTime = timeFormatter.format(new Date(timestamp));
+        const fallbackLabel = isFallback ? '（前次資料）' : '';
+        rateEl.innerHTML = `<span>1 TWD ≈ <strong>${formattedRate}</strong> JPY</span><span class="rate-updated">${fallbackLabel}更新 ${formattedTime}</span>`;
+        rateEl.setAttribute('title', `更新時間（台北）：${formattedTime}${isFallback ? '（前次資料）' : ''}`);
+      }
+
+      function withTimeout(promise, timeout) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+        return Promise.resolve(promise(controller.signal)).finally(() => clearTimeout(timer));
+      }
+
+      async function fetchRateWithFallback() {
+        for (const source of RATE_SOURCES) {
+          try {
+            const response = await withTimeout(
+              (signal) => fetch(source.url, { cache: 'no-store', signal }),
+              FETCH_TIMEOUT
+            );
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}`);
+            }
+            const payload = await response.json();
+            const rate = source.resolve(payload);
+            if (typeof rate === 'number' && Number.isFinite(rate)) {
+              return rate;
+            }
+            throw new Error('Unexpected payload structure');
+          } catch (error) {
+            if (error && error.name === 'AbortError') {
+              console.warn('Exchange rate source timed out', source.url);
+            } else {
+              console.warn('Exchange rate source failed', source.url, error);
+            }
+          }
+        }
+        throw new Error('All exchange rate sources failed');
+      }
+
+      async function updateRate() {
+        try {
+          const rate = await fetchRateWithFallback();
+          writeCachedRate(rate);
+          renderRate(rate, Date.now());
+        } catch (error) {
+          console.error('Failed to fetch exchange rate', error);
+          const cached = readCachedRate();
+          if (cached && Date.now() - cached.timestamp <= CACHE_TTL) {
+            renderRate(cached.rate, cached.timestamp, { isFallback: true });
+          } else {
+            rateEl.textContent = '匯率暫時無法取得';
+            rateEl.removeAttribute('title');
+          }
+        }
+      }
+
+      const cachedInitial = readCachedRate();
+      if (cachedInitial) {
+        renderRate(cachedInitial.rate, cachedInitial.timestamp, { isFallback: Date.now() - cachedInitial.timestamp > CACHE_TTL });
+      }
+
+      updateRate();
+      setInterval(updateRate, 30 * 60 * 1000);
     })();
   </script>
 </body>
