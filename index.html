@@ -1,161 +1,781 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-theme="dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>東京六日自由行（11/15–11/21）｜飯店＋航班整合｜可列印版本</title>
-<style>
-  :root{ --bg:#0b0c10; --card:#111317; --muted:#9fb3c8; --text:#e6edf3; --line:#1f2330; --accent:#64ffda; --accent2:#4ea1ff; }
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}
-  .wrap{max-width:1000px;margin:0 auto;padding:24px}
-  header{padding:24px 0 8px;border-bottom:1px solid var(--line);margin-bottom:18px}
-  h1{margin:0 0 8px;font-size:clamp(22px,3.5vw,34px)}
-  h2{margin:26px 0 10px;border-left:3px solid var(--accent2);padding-left:10px}
-  h3{margin:18px 0 8px}
-  .meta{color:var(--muted);font-size:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
-  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:2px 6px 2px 0;color:var(--muted);font-size:12px}
-  .time{display:inline-block;min-width:86px;padding:2px 8px;border-radius:8px;background:#0f1422;border:1px solid #1c2335;color:#b9c6e3;font-variant-numeric:tabular-nums;margin-right:8px}
-  .row{display:flex;gap:10px;align-items:flex-start;margin:6px 0}
-  .row b{color:#cfe6ff}
-  .note{color:var(--muted);font-size:14px}
-  a{color:var(--accent2);text-decoration:none} a:hover{text-decoration:underline}
-  .cta{display:inline-block;background:var(--accent);color:#001316;padding:10px 14px;border-radius:12px;font-weight:700;margin-right:10px}
-  @media print{
-    body{background:#fff;color:#000}
-    .card{border-color:#ddd}
-    a{color:#000;text-decoration:none}
-    header{border:none;margin:0 0 6px 0}
-    .cta{display:none}
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>東京六日自由行（2025/11/15–11/21）整合指南</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg-dark: #0b0c10;
+      --bg-light: #f9fafc;
+      --text-dark: #e6edf3;
+      --text-light: #1a1e2b;
+      --muted-dark: #8892b0;
+      --muted-light: #5c6478;
+      --card-dark: #111317;
+      --card-light: #ffffff;
+      --border-dark: #1f2330;
+      --border-light: #dbe2ee;
+      --table-header-dark: #151925;
+      --table-header-light: #eef2fb;
+      --accent: #64ffda;
+      --accent-strong: #4ea1ff;
+      --shadow-dark: 0 14px 32px rgba(10, 15, 38, 0.35);
+      --shadow-light: 0 14px 32px rgba(15, 23, 42, 0.16);
+      --transition-speed: 0.3s;
+      --page-bg: var(--bg-dark);
+      --page-text: var(--text-dark);
+      --muted-text: var(--muted-dark);
+      --card-bg: var(--card-dark);
+      --border-color: var(--border-dark);
+      --table-header: var(--table-header-dark);
+      --card-shadow: var(--shadow-dark);
+    }
+
+    :root[data-theme="light"] {
+      --page-bg: var(--bg-light);
+      --page-text: var(--text-light);
+      --muted-text: var(--muted-light);
+      --card-bg: var(--card-light);
+      --border-color: var(--border-light);
+      --table-header: var(--table-header-light);
+      --card-shadow: var(--shadow-light);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+      background: var(--page-bg);
+      color: var(--page-text);
+      transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      opacity: 0.9;
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+    }
+
+    header {
+      display: grid;
+      gap: 16px;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .exchange-rate {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--muted-text);
+      font-size: 14px;
+      box-shadow: var(--card-shadow);
+      min-width: max-content;
+    }
+
+    .exchange-rate strong {
+      color: var(--accent-strong);
+      font-size: 15px;
+    }
+
+    .exchange-rate .rate-updated {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .meta {
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #012622;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      box-shadow: var(--card-shadow);
+    }
+
+    .cta:hover,
+    .cta:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(100, 255, 218, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 15px;
+    }
+
+    .nav a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background var(--transition-speed) ease, border var(--transition-speed) ease;
+      color: var(--page-text);
+    }
+
+    .nav a:hover,
+    .nav a:focus {
+      border-color: var(--border-color);
+      background: var(--card-bg);
+      text-decoration: none;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      box-shadow: var(--card-shadow);
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(76, 95, 255, 0.15);
+    }
+
+    h2 {
+      margin: 48px 0 16px;
+      font-size: clamp(22px, 3vw, 30px);
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: clamp(18px, 2.6vw, 24px);
+    }
+
+    .day {
+      border-left: 3px solid var(--accent-strong);
+      padding-left: 16px;
+      margin: 28px 0;
+    }
+
+    .note {
+      font-size: 14px;
+      color: var(--muted-text);
+      margin-top: 12px;
+    }
+
+    .note strong {
+      color: var(--page-text);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 24px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 16px;
+      vertical-align: top;
+      text-align: left;
+      transition: background var(--transition-speed) ease;
+    }
+
+    thead th {
+      background: var(--table-header);
+      color: var(--page-text);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    tbody tr:hover td {
+      background: rgba(78, 161, 255, 0.08);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(100, 255, 218, 0.14);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--page-text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      transform: translateY(-2px);
+      background: rgba(78, 161, 255, 0.12);
+    }
+
+    .section-intro {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+      color: var(--muted-text);
+      font-size: 15px;
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 4px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: rgba(78, 161, 255, 0.1);
+      color: var(--page-text);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .chip span {
+      color: var(--muted-text);
+      font-size: 12px;
+    }
+
+    .schedule-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: minmax(80px, 100px) 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .timeline-time {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .timeline-content {
+      color: var(--page-text);
+    }
+
+    .timeline-content strong {
+      color: var(--page-text);
+    }
+
+    .note-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted-text);
+    }
+
+    .two-column-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .two-column-grid .card {
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .two-column-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 24px 18px 40px;
+      }
+
+      .header-actions {
+        align-items: flex-start;
+      }
+
+      table,
+      th,
+      td {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .timeline-item {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>東京六日自由行（2025/11/15–11/21）— 航班＋飯店動線整合</h1>
-    <div class="meta">去程 MM626 桃園→成田（14:55 到）｜回程 CI101 成田→桃園（11/21 14:35 起飛）｜住宿：押上 3 晚 → 新宿 3 晚（皆不含早餐）</div>
-  </header>
+  <div class="wrap">
+    <header>
+      <div class="header-top">
+        <h1>東京六日自由行（2025/11/15–11/21）— 航班＋飯店動線整合</h1>
+        <div class="header-actions">
+          <div id="exchangeRate" class="exchange-rate" aria-live="polite">匯率載入中…</div>
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="切換黑白背景">
+            <span aria-hidden="true">🌓</span>
+            <span class="toggle-text">黑底</span>
+          </button>
+        </div>
+      </div>
+      <div class="meta">
+        去程 MM626 桃園 → 成田（11/15 14:55 抵達）｜回程 CI101 成田 → 桃園（11/21 14:35 起飛）<br>
+        住宿：押上 3 晚（Richmond Hotel Premier Tokyo Schole）→ 新宿 3 晚（JR Kyushu Hotel Blossom Shinjuku）
+      </div>
+      <div class="cta-group">
+        <a class="cta" href="tokyo_itinerary_per_day.kml" download>下載 KML（My Maps 分日）</a>
+        <a class="cta" href="tokyo_itinerary_places_enhanced.csv" download>下載 CSV（自訂顏色）</a>
+      </div>
+      <nav class="nav" aria-label="頁面導覽">
+        <a href="#overview">航班＆住宿</a>
+        <a href="#tickets">票券工具</a>
+        <a href="#schedule">每日行程</a>
+        <a href="#food">餐飲名單</a>
+        <a href="#notes">備註與雨備</a>
+      </nav>
+    </header>
 
-  <h2>航班與住宿</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>✈️ 航班</h3>
-      <div class="row"><span class="time">11/15 14:55</span> 成田 T1 抵達（MM626）</div>
-      <div class="row"><span class="time">11/21 14:35</span> 成田 T2 起飛（CI101）</div>
-      <p class="note">國際線建議起飛前 2–3 小時到機場。</p>
-    </div>
-    <div class="card">
-      <h3>🏨 住宿</h3>
-      <p><b>11/15–11/17（3 晚）</b><br>Richmond Hotel Premier Tokyo Schole（押上／晴空塔旁）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
-      <p><b>11/18–11/20（3 晚）</b><br>JR Kyushu Hotel Blossom Shinjuku（新宿南口／Busta 近）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
-    </div>
+    <section id="overview">
+      <h2>✈️ 航班與住宿重點</h2>
+      <div class="two-column-grid">
+        <div class="card">
+          <h3>航班資訊</h3>
+          <ul class="timeline">
+            <li class="timeline-item"><span class="timeline-time">11/15 14:55</span><div class="timeline-content">MM626 桃園 → 成田 T1 抵達（建議預留 45–60 分鐘入境）</div></li>
+            <li class="timeline-item"><span class="timeline-time">11/21 14:35</span><div class="timeline-content">CI101 成田 T2 起飛（請於起飛前 2–3 小時抵達機場）</div></li>
+          </ul>
+          <p class="note">搭乘國際線記得預先完成線上值機與托運需求，節省機場等待時間。</p>
+        </div>
+        <div class="card">
+          <h3>住宿安排</h3>
+          <p><strong>11/15–11/17（押上 3 晚）</strong><br>Richmond Hotel Premier Tokyo Schole（晴空塔旁）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
+          <p><strong>11/18–11/20（新宿 3 晚）</strong><br>JR Kyushu Hotel Blossom Shinjuku（南口／Busta 近）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tickets">
+      <h2>🧭 票券與工具</h2>
+      <div class="card">
+        <div class="chip-group">
+          <span class="chip">Suica / PASMO<span>全程使用</span></span>
+          <span class="chip">Tokyo Subway 72h<span>Day 1–3</span></span>
+          <span class="chip">富士回遊號 / 高速巴士<span>Day 4 河口湖</span></span>
+        </div>
+        <p class="note">JR Pass 不划算，建議以 IC 卡＋單程票券搭配即可完成都內、鎌倉與河口湖行程。</p>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <h2>🗓 每日行程</h2>
+      <div class="schedule-grid">
+        <div class="day">
+          <h3>Day 1｜11/15（六）成田 → 押上入住 → 晴空塔夜景</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">14:55</span><div class="timeline-content">抵達成田 T1 → 入境／領行李（45–60 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">~16:10</span><div class="timeline-content"><strong>交通：</strong> 京成 Access Express 直達押上約 60–70 分，或 Skyliner 轉乘地鐵</div></li>
+              <li class="timeline-item"><span class="timeline-time">~17:10</span><div class="timeline-content">押上站步行 1–3 分鐘 → 飯店 Check-in（14:00 起）</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:30–19:00</span><div class="timeline-content"><strong>東京晴空塔：</strong> 夕陽銜接夜景；Solamachi 晚餐（六厘舍／鰻魚／定食）</div></li>
+              <li class="timeline-item"><span class="timeline-time">20:00</span><div class="timeline-content">隅田公園散步或回飯店休息</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 2｜11/16（日）上野文化 → 秋葉原 → 銀座夜景（押上往返）</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">08:30</span><div class="timeline-content">早餐：押上周邊咖啡／便利商店</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:15</span><div class="timeline-content">押上 → 上野（地鐵）</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:45–12:00</span><div class="timeline-content">上野恩賜公園＋擇一：國立博物館／科學博物館</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">阿美橫丁午餐（丼飯／鰻魚／豬排）</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:30</span><div class="timeline-content">上野 → 秋葉原（JR 1 站或步行）</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:45–16:30</span><div class="timeline-content">無線電會館、扭蛋館、MANDARAKE 挖寶</div></li>
+              <li class="timeline-item"><span class="timeline-time">16:30</span><div class="timeline-content">秋葉原 → 銀座（日比谷線直達）</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:00–19:00</span><div class="timeline-content">銀座散步（中央通、GINZA SIX 屋頂）＋晚餐（壽司吧／居酒屋）</div></li>
+              <li class="timeline-item"><span class="timeline-time">19:30</span><div class="timeline-content">銀座 → 押上（地鐵 20–30 分）</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 3｜11/17（一）鎌倉一日 → 傍晚至新宿</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">07:30</span><div class="timeline-content">建議早出發；大件行李寄放押上或宅配到新宿</div></li>
+              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">押上 → 新宿 → JR 湘南新宿線直達鎌倉（約 60 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:30–11:30</span><div class="timeline-content">鶴岡八幡宮＋小町通散步</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">午餐：釜飯／蕎麥／海邊咖啡</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:15–15:30</span><div class="timeline-content">長谷寺 → 鎌倉大佛（高德院）</div></li>
+              <li class="timeline-item"><span class="timeline-time">備選 15:45–16:30</span><div class="timeline-content">江之電至鎌倉高校前平交道拍海景</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:30–18:30</span><div class="timeline-content">回東京 → 入住 JR Kyushu Hotel Blossom Shinjuku</div></li>
+              <li class="timeline-item"><span class="timeline-time">晚間</span><div class="timeline-content">思出橫丁燒鳥／拉麵／百貨 B1 外帶</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 4｜11/18（二）富士山・河口湖一日（新宿出發）</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">07:30</span><div class="timeline-content">早餐後前往新宿南口 Busta</div></li>
+              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">高速巴士至河口湖（約 1h45）或 JR 富士回遊號（約 2h05）</div></li>
+              <li class="timeline-item"><span class="timeline-time">10:00–12:00</span><div class="timeline-content">天上山纜車 → 山頂展望</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:10–13:00</span><div class="timeline-content">午餐：ほうとう不動（山梨名物）</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:20–14:20</span><div class="timeline-content">大石公園賞景</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:40–15:40</span><div class="timeline-content">新倉富士淺間神社（忠靈塔）</div></li>
+              <li class="timeline-item"><span class="timeline-time">16:30–18:30</span><div class="timeline-content">返回新宿；晚餐建議拉麵／燒肉</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 5｜11/19（三）表參道 → 裏原宿 → 下北澤</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">09:30</span><div class="timeline-content">新宿 → 表參道（地鐵）</div></li>
+              <li class="timeline-item"><span class="timeline-time">10:00–11:00</span><div class="timeline-content">表參道建築散步（表參道之丘、Prada、Dior）</div></li>
+              <li class="timeline-item"><span class="timeline-time">11:00–12:00</span><div class="timeline-content">咖啡巡禮：Blue Bottle / Koffee Mameya</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:10–13:10</span><div class="timeline-content">午餐：Afuri 柚子拉麵 / Maisen 青山豬排</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:30</span><div class="timeline-content">表參道 → 代代木上原（千代田）→ 小田急至下北澤（約 20 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:00–17:00</span><div class="timeline-content">東洋百貨店、MIKAN Shimokita、巷弄古著＋咖啡</div></li>
+              <li class="timeline-item"><span class="timeline-time">18:00</span><div class="timeline-content">晚餐（咖哩／居酒屋）後返回新宿</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 6｜11/20（四）六本木藝術日 → 打包整理</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">09:30</span><div class="timeline-content">新宿 → 六本木（都營大江戶線）</div></li>
+              <li class="timeline-item"><span class="timeline-time">10:00–12:00</span><div class="timeline-content">森美術館＋Tokyo City View＋毛利庭園</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">午餐：Eggcellent Café / TUSK Café</div></li>
+              <li class="timeline-item"><span class="timeline-time">下午</span><div class="timeline-content">新宿自由購物／整理行李（Check-out 11:00，可洽寄放）</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 7｜11/21（五）新宿 → 成田 T2 → CI101（14:35 起飛）</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">12:15–12:35</span><div class="timeline-content">目標抵達成田 T2（保留 2–3 小時辦理登機與安檢）</div></li>
+              <li class="timeline-item"><span class="timeline-time">方案 A</span><div class="timeline-content">N'EX 成田特快：新宿直達 T2（約 1h20）</div></li>
+              <li class="timeline-item"><span class="timeline-time">方案 B</span><div class="timeline-content">Skyliner：新宿 → 日暮里 → Skyliner 至 T2（約 1h05–1h15，需轉乘）</div></li>
+              <li class="timeline-item"><span class="timeline-time">方案 C</span><div class="timeline-content">機場巴士：Busta 新宿 → T2（約 90–120 分，視車況）</div></li>
+            </ul>
+            <p class="note">Busta 新宿距 Blossom 約步行 3 分鐘；旺季或壅塞時請預留更大緩衝。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="food">
+      <h2>🍱 餐飲口袋名單</h2>
+      <div class="two-column-grid">
+        <div class="card"><h3>押上／淺草</h3><p>Solamachi：六厘舍（沾麵）、鰻魚、定食；淺草今半、大黑家天丼；仲見世甜點。</p></div>
+        <div class="card"><h3>上野／秋葉原／銀座</h3><p>上野鰻魚／豬排；秋葉原甜點咖啡／拉麵；銀座壽司吧與居酒屋（GINZA SIX 餐廳樓層）。</p></div>
+        <div class="card"><h3>鎌倉</h3><p>Bills 七里濱（海景早午餐）、釜飯／蕎麥、抹茶甜點。</p></div>
+        <div class="card"><h3>新宿</h3><p>思出橫丁燒鳥、風雲児拉麵、燒肉ライク；百貨 B1 外帶回飯店。</p></div>
+        <div class="card"><h3>表參道／下北澤</h3><p>Afuri、Maisen、Blue Bottle、Koffee Mameya；下北澤咖哩與小酒館。</p></div>
+        <div class="card"><h3>六本木</h3><p>Eggcellent Café、TUSK Café；晚間可加碼東京鐵塔下餐廳街。</p></div>
+      </div>
+    </section>
+
+    <section id="notes">
+      <h2>📝 備註與雨備</h2>
+      <div class="card">
+        <ul class="note-list">
+          <li>雨天改逛：上野（國博／科博）、六本木（森／Suntory／國立新美術館）、台場購物中心、晴空塔商場。</li>
+          <li>地鐵出口多：請注意導航指定出口（B3、A1 等）。</li>
+          <li>11 月夜晚偏冷：帶薄羽絨／防風外套＋圍巾、暖暖包。</li>
+          <li>交通尖峰：平日 8–9、17–19 點擁擠，盡量錯峰。</li>
+          <li>行李建議：Day3 鎌倉日可用宅配（押上 → 新宿）減輕負擔。</li>
+        </ul>
+      </div>
+    </section>
   </div>
 
-  <h2>票券與工具</h2>
-  <div class="card">
-    <span class="pill">Suica / PASMO（全程）</span>
-    <span class="pill">（選）Tokyo Subway 72h（Day1–3）</span>
-    <span class="pill">富士回遊號或高速巴士（Day4）</span>
-    <p class="note">JR Pass 不划算；以都內＋鎌倉＋河口湖的組合，IC 卡＋個別搭乘最省。</p>
-  </div>
+  <script>
+    (function () {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let storedTheme = null;
+      try {
+        storedTheme = localStorage.getItem('tokyo-trip-theme');
+      } catch (error) {
+        console.warn('Theme preference unavailable', error);
+      }
+      const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+      const root = document.documentElement;
+      const toggleBtn = document.getElementById('themeToggle');
+      if (!toggleBtn) {
+        root.dataset.theme = initialTheme;
+        return;
+      }
 
-  <h2>每日行程（可列印）</h2>
+      const toggleText = toggleBtn.querySelector('.toggle-text');
 
-  <div class="card">
-    <h3>Day 1｜11/15（六）成田 → 押上入住 → 晴空塔夜景</h3>
-    <div class="row"><span class="time">14:55</span> 抵達成田 T1 → 入境/領行李（45–60 分）</div>
-    <div class="row"><span class="time">~16:10</span> <b>交通</b>：京成 Access Express（Narita SKY ACCESS）直達押上，約 60–70 分；或 Skyliner → 日暮里轉地鐵到押上</div>
-    <div class="row"><span class="time">~17:10</span> 押上站步行 1–3 分 → 飯店 Check-in（14:00 起）</div>
-    <div class="row"><span class="time">17:30–19:00</span> <b>東京晴空塔</b>：黃昏銜接夜景；晚餐在 Solamachi（六厘舍／鰻魚／定食）</div>
-    <div class="row"><span class="time">20:00</span> 隅田公園散步或回飯店休息</div>
-  </div>
+      function applyTheme(theme) {
+        const isDark = theme === 'dark';
+        root.dataset.theme = theme;
+        if (toggleText) {
+          toggleText.textContent = isDark ? '黑底' : '白底';
+        }
+        toggleBtn.setAttribute('aria-pressed', String(isDark));
+      }
 
-  <div class="card">
-    <h3>Day 2｜11/16（日）上野文化 → 秋葉原 → 銀座夜景（押上往返）</h3>
-    <div class="row"><span class="time">08:30</span> 早餐（押上周邊咖啡／便利商店）</div>
-    <div class="row"><span class="time">09:15</span> 押上 → 上野（地鐵）</div>
-    <div class="row"><span class="time">09:45–12:00</span> 上野恩賜公園＋擇一：東京國立博物館／科學博物館</div>
-    <div class="row"><span class="time">12:00–13:00</span> 阿美橫丁午餐（丼飯／鰻魚／豬排）</div>
-    <div class="row"><span class="time">13:30</span> 上野 → 秋葉原（JR 1 站或步行）</div>
-    <div class="row"><span class="time">13:45–16:30</span> 無線電會館／扭蛋館／MANDARAKE 挖寶</div>
-    <div class="row"><span class="time">16:30</span> 秋葉原 → 銀座（日比谷線直達）</div>
-    <div class="row"><span class="time">17:00–19:00</span> 銀座散步（中央通、GINZA SIX 屋頂）＋晚餐（壽司吧／居酒屋）</div>
-    <div class="row"><span class="time">19:30</span> 銀座 → 押上（地鐵 20–30 分）</div>
-  </div>
+      applyTheme(initialTheme);
 
-  <div class="card">
-    <h3>Day 3｜11/17（一）鎌倉一日 → 傍晚至新宿</h3>
-    <div class="row"><span class="time">07:30</span> 早出發；大件行李建議寄放押上或宅配到新宿（TA-Q-BIN）</div>
-    <div class="row"><span class="time">08:00</span> 押上 → 新宿 → JR 湘南新宿線 直達鎌倉（約 60 分）</div>
-    <div class="row"><span class="time">09:30–11:30</span> 鶴岡八幡宮＋小町通；邊走邊吃</div>
-    <div class="row"><span class="time">12:00–13:00</span> 午餐（釜飯／蕎麥／海邊咖啡）</div>
-    <div class="row"><span class="time">13:15–15:30</span> 長谷寺 → 鎌倉大佛（高德院）</div>
-    <div class="row"><span class="time">（選）15:45–16:30</span> 江之電到鎌倉高校前平交道拍海景</div>
-    <div class="row"><span class="time">17:30–18:30</span> 回東京 → 入住 JR Kyushu Blossom Shinjuku（14:00 起）</div>
-    <div class="row"><span class="time">晚間</span> 思出橫丁燒鳥／拉麵／百貨 B1 外帶</div>
-  </div>
+      toggleBtn.addEventListener('click', () => {
+        const newTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        try {
+          localStorage.setItem('tokyo-trip-theme', newTheme);
+        } catch (error) {
+          console.warn('Unable to persist theme preference', error);
+        }
+        applyTheme(newTheme);
+      });
+    })();
 
-  <div class="card">
-    <h3>Day 4｜11/18（二）富士山・河口湖一日（新宿出發）</h3>
-    <div class="row"><span class="time">07:30</span> 早餐 → 新宿南口 Busta</div>
-    <div class="row"><span class="time">08:00</span> 高速巴士至河口湖（~1h45）；或 JR 富士回遊號（~2h05）</div>
-    <div class="row"><span class="time">10:00–12:00</span> 天上山纜車 → 山頂展望</div>
-    <div class="row"><span class="time">12:10–13:00</span> 午餐：ほうとう不動（山梨名物）</div>
-    <div class="row"><span class="time">13:20–14:20</span> 大石公園（花海＋富士山視角）</div>
-    <div class="row"><span class="time">14:40–15:40</span> 新倉富士淺間神社（忠靈塔）</div>
-    <div class="row"><span class="time">16:30–18:30</span> 回新宿；晚餐拉麵／燒肉</div>
-  </div>
+    (function () {
+      const rateEl = document.getElementById('exchangeRate');
+      if (!rateEl) return;
 
-  <div class="card">
-    <h3>Day 5｜11/19（三）表參道 → 裏原宿 → 下北澤</h3>
-    <div class="row"><span class="time">09:30</span> 新宿 → 表參道（地鐵）</div>
-    <div class="row"><span class="time">10:00–11:00</span> 表參道建築散步（表參道之丘、Prada、Dior）</div>
-    <div class="row"><span class="time">11:00–12:00</span> 咖啡：Blue Bottle / Koffee Mameya</div>
-    <div class="row"><span class="time">12:10–13:10</span> 午餐：Afuri 柚子拉麵 / Maisen 青山豬排</div>
-    <div class="row"><span class="time">13:30</span> 表參道 → 代代木上原（千代田）→ 小田急至下北澤（~20 分）</div>
-    <div class="row"><span class="time">14:00–17:00</span> 東洋百貨店、MIKAN Shimokita、巷弄古著＋咖啡</div>
-    <div class="row"><span class="time">18:00</span> 晚餐（咖哩／居酒屋）→ 回新宿</div>
-  </div>
+      const RATE_SOURCES = [
+        {
+          url: 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/twd/jpy.json',
+          resolve: (payload) => payload && payload.jpy
+        },
+        {
+          url: 'https://api.exchangerate.host/latest?base=TWD&symbols=JPY',
+          resolve: (payload) => payload && payload.rates && payload.rates.JPY
+        },
+        {
+          url: 'https://open.er-api.com/v6/latest/TWD',
+          resolve: (payload) => payload && payload.rates && payload.rates.JPY
+        }
+      ];
 
-  <div class="card">
-    <h3>Day 6｜11/20（四）六本木藝術日 → 打包整理</h3>
-    <div class="row"><span class="time">09:30</span> 新宿 → 六本木（都營大江戶線）</div>
-    <div class="row"><span class="time">10:00–12:00</span> 森美術館＋Tokyo City View＋毛利庭園</div>
-    <div class="row"><span class="time">12:00–13:00</span> 午餐：Eggcellent Café / TUSK Café</div>
-    <div class="row"><span class="time">下午</span> 新宿自由購物／整理行李（Check-out 11:00，可洽寄放）</div>
-  </div>
+      let storage = null;
+      try {
+        storage = window.localStorage;
+      } catch (error) {
+        console.warn('Local storage unavailable for exchange rate cache', error);
+      }
 
-  <div class="card">
-    <h3>Day 7｜11/21（五）新宿 → 成田 T2 → CI101（14:35 起飛）</h3>
-    <div class="row"><span class="time">目標 12:15–12:35</span> 抵達成田 T2（預留 2–3 小時）</div>
-    <div class="row"><span class="time">方案 A</span> N'EX 成田特快：新宿直達 T2（~1h20）</div>
-    <div class="row"><span class="time">方案 B</span> Skyliner：新宿 → 日暮里 → Skyliner 至 T2（~1h05–1h15，需轉乘）</div>
-    <div class="row"><span class="time">方案 C</span> 機場巴士：Busta 新宿 → T2（~90–120 分，視車況）</div>
-    <p class="note">Busta 新宿距 Blossom 約步行 3 分鐘；旺季或壅塞請加大緩衝。</p>
-  </div>
+      const CACHE_KEY = 'tokyo-trip-exchange-rate';
+      const CACHE_TTL = 12 * 60 * 60 * 1000; // 12 小時
+      const FETCH_TIMEOUT = 10 * 1000;
 
-  <h2>餐飲口袋名單（就近原則）</h2>
-  <div class="grid">
-    <div class="card"><h3>押上／淺草</h3><p>Solamachi：六厘舍（沾麵）、鰻魚、定食；淺草今半、 大黑家天丼；仲見世甜點。</p></div>
-    <div class="card"><h3>上野／秋葉原／銀座</h3><p>上野鰻魚／豬排；秋葉原甜點咖啡／拉麵；銀座壽司吧與居酒屋（GINZA SIX 餐廳樓層）。</p></div>
-    <div class="card"><h3>鎌倉</h3><p>Bills 七里濱（海景早午餐）、釜飯／蕎麥、抹茶甜點。</p></div>
-    <div class="card"><h3>新宿</h3><p>思出橫丁燒鳥、風雲児拉麵、燒肉ライク；百貨 B1 外帶回飯店。</p></div>
-    <div class="card"><h3>表參道／下北澤</h3><p>Afuri、Maisen、Blue Bottle、Koffee Mameya；下北澤咖哩與小酒館。</p></div>
-    <div class="card"><h3>六本木</h3><p>Eggcellent Café、TUSK Café；晚間可加碼東京鐵塔下餐廳街。</p></div>
-  </div>
+      const numberFormatter = new Intl.NumberFormat('zh-Hant', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      const timeFormatter = new Intl.DateTimeFormat('zh-Hant', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Taipei'
+      });
 
-  <h2>備註與雨備</h2>
-  <div class="card">
-    <ul>
-      <li>雨天改逛：上野（國博／科博）、六本木（森／Suntory／國立新美術館）、台場購物中心、晴空塔商場。</li>
-      <li>地鐵出口多：請注意導航指定出口（B3、A1…）。</li>
-      <li>11 月夜晚偏冷：帶薄羽絨／防風外套＋圍巾、暖暖包。</li>
-      <li>交通尖峰：平日 8–9、17–19 點擁擠，盡量錯峰。</li>
-      <li>行李建議：Day3 鎌倉日可用宅配（押上 → 新宿）減負擔。</li>
-    </ul>
-  </div>
-</div>
+      function readCachedRate() {
+        try {
+          if (!storage) return null;
+          const cachedRaw = storage.getItem(CACHE_KEY);
+          if (!cachedRaw) return null;
+          const cached = JSON.parse(cachedRaw);
+          if (!cached || typeof cached.rate !== 'number' || typeof cached.timestamp !== 'number') {
+            return null;
+          }
+          return cached;
+        } catch (error) {
+          console.warn('Failed to read cached exchange rate', error);
+          return null;
+        }
+      }
+
+      function writeCachedRate(rate) {
+        try {
+          const payload = JSON.stringify({ rate, timestamp: Date.now() });
+          if (!storage) return;
+          storage.setItem(CACHE_KEY, payload);
+        } catch (error) {
+          console.warn('Failed to cache exchange rate', error);
+        }
+      }
+
+      function renderRate(rate, timestamp, { isFallback = false } = {}) {
+        const formattedRate = numberFormatter.format(rate);
+        const formattedTime = timeFormatter.format(new Date(timestamp));
+        const fallbackLabel = isFallback ? '（前次資料）' : '';
+        rateEl.innerHTML = `<span>1 TWD ≈ <strong>${formattedRate}</strong> JPY</span><span class="rate-updated">${fallbackLabel}更新 ${formattedTime}</span>`;
+        rateEl.setAttribute('title', `更新時間（台北）：${formattedTime}${isFallback ? '（前次資料）' : ''}`);
+      }
+
+      function withTimeout(promise, timeout) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+        return Promise.resolve(promise(controller.signal)).finally(() => clearTimeout(timer));
+      }
+
+      async function fetchRateWithFallback() {
+        for (const source of RATE_SOURCES) {
+          try {
+            const response = await withTimeout(
+              (signal) => fetch(source.url, { cache: 'no-store', signal }),
+              FETCH_TIMEOUT
+            );
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}`);
+            }
+            const payload = await response.json();
+            const rate = source.resolve(payload);
+            if (typeof rate === 'number' && Number.isFinite(rate)) {
+              return rate;
+            }
+            throw new Error('Unexpected payload structure');
+          } catch (error) {
+            if (error && error.name === 'AbortError') {
+              console.warn('Exchange rate source timed out', source.url);
+            } else {
+              console.warn('Exchange rate source failed', source.url, error);
+            }
+          }
+        }
+        throw new Error('All exchange rate sources failed');
+      }
+
+      async function updateRate() {
+        try {
+          const rate = await fetchRateWithFallback();
+          writeCachedRate(rate);
+          renderRate(rate, Date.now());
+        } catch (error) {
+          console.error('Failed to fetch exchange rate', error);
+          const cached = readCachedRate();
+          if (cached && Date.now() - cached.timestamp <= CACHE_TTL) {
+            renderRate(cached.rate, cached.timestamp, { isFallback: true });
+          } else {
+            rateEl.textContent = '匯率暫時無法取得';
+            rateEl.removeAttribute('title');
+          }
+        }
+      }
+
+      const cachedInitial = readCachedRate();
+      if (cachedInitial) {
+        renderRate(cachedInitial.rate, cachedInitial.timestamp, { isFallback: Date.now() - cachedInitial.timestamp > CACHE_TTL });
+      }
+
+      updateRate();
+      setInterval(updateRate, 30 * 60 * 1000);
+    })();
+  </script>
 </body>
 </html>
