@@ -355,6 +355,22 @@
       color: var(--page-text);
     }
 
+    .timeline-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      font-weight: 700;
+      box-shadow: 0 6px 12px rgba(78, 161, 255, 0.25);
+    }
+
     .note-list {
       margin: 0;
       padding-left: 18px;
@@ -452,7 +468,7 @@
         </div>
         <div class="card">
           <h3>住宿安排</h3>
-          <p><strong>11/15–11/17（押上 3 晚）</strong><br>Richmond Hotel Premier Tokyo Schole（晴空塔旁）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
+          <p><strong>11/15–11/17（押上 3 晚）</strong><br>Richmond Hotel Premier Tokyo Oshiage（晴空塔旁）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
           <p><strong>11/18–11/20（新宿 3 晚）</strong><br>JR Kyushu Hotel Blossom Shinjuku（南口／Busta 近）<br><span class="note">Check-in 14:00｜Check-out 11:00｜不含早餐</span></p>
         </div>
       </div>
@@ -463,8 +479,7 @@
       <div class="card">
         <div class="chip-group">
           <span class="chip">Suica / PASMO<span>全程使用</span></span>
-          <span class="chip">Tokyo Subway 72h<span>Day 1–3</span></span>
-          <span class="chip">富士回遊號 / 高速巴士<span>Day 4 河口湖</span></span>
+          <span class="chip">河口湖高速巴士<span>Day 4 往返</span></span>
         </div>
         <p class="note">JR Pass 不划算，建議以 IC 卡＋單程票券搭配即可完成都內、鎌倉與河口湖行程。</p>
       </div>
@@ -474,63 +489,69 @@
       <h2>🗓 每日行程</h2>
       <div class="schedule-grid">
         <div class="day">
-          <h3>Day 1｜11/15（六）成田 → 押上入住 → 晴空塔夜景</h3>
+          <h3>Day 1｜11/15（六）成田抵達 → 押上入住 → 晴空塔夜景</h3>
           <div class="card">
             <ul class="timeline">
-              <li class="timeline-item"><span class="timeline-time">14:55</span><div class="timeline-content">抵達成田 T1 → 入境／領行李（45–60 分）</div></li>
-              <li class="timeline-item"><span class="timeline-time">~16:10</span><div class="timeline-content"><strong>交通：</strong> 京成 Access Express 直達押上約 60–70 分，或 Skyliner 轉乘地鐵</div></li>
-              <li class="timeline-item"><span class="timeline-time">~17:10</span><div class="timeline-content">押上站步行 1–3 分鐘 → 飯店 Check-in（14:00 起）</div></li>
-              <li class="timeline-item"><span class="timeline-time">17:30–19:00</span><div class="timeline-content"><strong>東京晴空塔：</strong> 夕陽銜接夜景；Solamachi 晚餐（六厘舍／鰻魚／定食）</div></li>
-              <li class="timeline-item"><span class="timeline-time">20:00</span><div class="timeline-content">隅田公園散步或回飯店休息</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:55</span><div class="timeline-content">抵達成田 T1（MM626）→ 入境、領行李約 45–60 分鐘</div></li>
+              <li class="timeline-item"><span class="timeline-time">16:00</span><div class="timeline-content"><strong>京成 Access Express：</strong> 無需轉乘直達押上站，車程約 70 分鐘</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:15</span><div class="timeline-content">抵達押上 → 步行 1–3 分鐘入住飯店，稍作休息</div></li>
+              <li class="timeline-item"><span class="timeline-time">18:00–20:00</span><div class="timeline-content"><strong>東京晴空塔夜景：</strong> 傍晚登塔欣賞夕陽到夜景；Solamachi 商場逛街＋晚餐（六厘舍沾麵／Tsukiji Tama Sushi／晴空塔壽司三昧）</div></li>
+              <li class="timeline-item"><span class="timeline-time">20:30</span><div class="timeline-content">隅田公園夜景散步 → 回飯店休息</div></li>
+            </ul>
+            <p class="note">在便利商店為 Suica／PASMO 加值並買瓶暖茶，感受東京夜晚氣氛。</p>
+          </div>
+        </div>
+
+        <div class="day">
+          <h3>Day 2｜11/16（日）上野文化散步 → 秋葉原 → 銀座夜景</h3>
+          <div class="card">
+            <ul class="timeline">
+              <li class="timeline-item"><span class="timeline-time">08:30</span><div class="timeline-content">早餐：押上 Station Cafe 或 7-11 方便速食</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:15</span><div class="timeline-content">押上站搭半藏門線 → 淺草站轉銀座線抵上野（約 25 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:45–12:00</span><div class="timeline-content">上野恩賜公園散步＋東京國立博物館（或科學博物館）賞楓、聽導覽</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">阿美橫丁午餐：豬排山家／鰻魚伊豆榮／市場小吃</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:30</span><div class="timeline-content">上野 → 秋葉原（JR 山手線一站，或散步 15 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:45–16:30</span><div class="timeline-content">無線電會館、MANDARAKE、扭蛋會館巡禮，補貨動漫電器</div></li>
+              <li class="timeline-item"><span class="timeline-time">16:30</span><div class="timeline-content">秋葉原 → 銀座（日比谷線直達，約 15 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:00</span><div class="timeline-content">銀座散步：GINZA SIX 屋頂、UNIQLO 旗艦店、和光鐘塔</div></li>
+              <li class="timeline-item"><span class="timeline-time">18:00</span><div class="timeline-content">晚餐：銀座壽司吧／鳥貴族／銀座天國天丼<span class="timeline-tag">特殊行程</span></div></li>
+              <li class="timeline-item"><span class="timeline-time">19:30</span><div class="timeline-content">銀座 → 押上（地鐵約 30 分），回飯店或前往晴空塔星巴克看夜景</div></li>
             </ul>
           </div>
         </div>
 
         <div class="day">
-          <h3>Day 2｜11/16（日）上野文化 → 秋葉原 → 銀座夜景（押上往返）</h3>
+          <h3>Day 3｜11/17（一）鎌倉一日遊（押上往返）</h3>
           <div class="card">
             <ul class="timeline">
-              <li class="timeline-item"><span class="timeline-time">08:30</span><div class="timeline-content">早餐：押上周邊咖啡／便利商店</div></li>
-              <li class="timeline-item"><span class="timeline-time">09:15</span><div class="timeline-content">押上 → 上野（地鐵）</div></li>
-              <li class="timeline-item"><span class="timeline-time">09:45–12:00</span><div class="timeline-content">上野恩賜公園＋擇一：國立博物館／科學博物館</div></li>
-              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">阿美橫丁午餐（丼飯／鰻魚／豬排）</div></li>
-              <li class="timeline-item"><span class="timeline-time">13:30</span><div class="timeline-content">上野 → 秋葉原（JR 1 站或步行）</div></li>
-              <li class="timeline-item"><span class="timeline-time">13:45–16:30</span><div class="timeline-content">無線電會館、扭蛋館、MANDARAKE 挖寶</div></li>
-              <li class="timeline-item"><span class="timeline-time">16:30</span><div class="timeline-content">秋葉原 → 銀座（日比谷線直達）</div></li>
-              <li class="timeline-item"><span class="timeline-time">17:00–19:00</span><div class="timeline-content">銀座散步（中央通、GINZA SIX 屋頂）＋晚餐（壽司吧／居酒屋）</div></li>
-              <li class="timeline-item"><span class="timeline-time">19:30</span><div class="timeline-content">銀座 → 押上（地鐵 20–30 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">07:30</span><div class="timeline-content">早餐：飯店附近外帶三明治或便利商店，為長程備糧</div></li>
+              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">押上 → 新宿 → 搭 JR 湘南新宿線直達鎌倉（約 70 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:30–11:00</span><div class="timeline-content">鶴岡八幡宮參拜，漫步小町通品嚐豆腐甜甜圈、抹茶冰淇淋</div></li>
+              <li class="timeline-item"><span class="timeline-time">11:30–13:00</span><div class="timeline-content">午餐：鎌倉釜飯、蕎麥麵「松原庵」、或海邊咖啡 bills 七里濱</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:30–15:30</span><div class="timeline-content">長谷寺賞景 → 步行至鎌倉大佛（高德院）</div></li>
+              <li class="timeline-item"><span class="timeline-time">15:45–16:30</span><div class="timeline-content">（選擇）搭江之電至鎌倉高校前平交道，眺望海景日落</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:30</span><div class="timeline-content">返程回東京（約 90 分），晚餐可在押上 Solamachi 或淺草居酒屋</div></li>
+              <li class="timeline-item"><span class="timeline-time">夜間</span><div class="timeline-content">整理行李，準備隔天退房轉移新宿</div></li>
             </ul>
+            <p class="note">建議 Day3 晚上使用 TA-Q-BIN 宅配大件行李到新宿飯店，隔日輕裝上路。</p>
           </div>
         </div>
 
         <div class="day">
-          <h3>Day 3｜11/17（一）鎌倉一日 → 傍晚至新宿</h3>
+          <h3>Day 4｜11/18（二）押上退房 → 河口湖・富士山一日遊</h3>
           <div class="card">
             <ul class="timeline">
-              <li class="timeline-item"><span class="timeline-time">07:30</span><div class="timeline-content">建議早出發；大件行李寄放押上或宅配到新宿</div></li>
-              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">押上 → 新宿 → JR 湘南新宿線直達鎌倉（約 60 分）</div></li>
-              <li class="timeline-item"><span class="timeline-time">09:30–11:30</span><div class="timeline-content">鶴岡八幡宮＋小町通散步</div></li>
-              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">午餐：釜飯／蕎麥／海邊咖啡</div></li>
-              <li class="timeline-item"><span class="timeline-time">13:15–15:30</span><div class="timeline-content">長谷寺 → 鎌倉大佛（高德院）</div></li>
-              <li class="timeline-item"><span class="timeline-time">備選 15:45–16:30</span><div class="timeline-content">江之電至鎌倉高校前平交道拍海景</div></li>
-              <li class="timeline-item"><span class="timeline-time">17:30–18:30</span><div class="timeline-content">回東京 → 入住 JR Kyushu Hotel Blossom Shinjuku</div></li>
-              <li class="timeline-item"><span class="timeline-time">晚間</span><div class="timeline-content">思出橫丁燒鳥／拉麵／百貨 B1 外帶</div></li>
+              <li class="timeline-item"><span class="timeline-time">06:30</span><div class="timeline-content">退房 → 地鐵前往新宿（約 40 分），於 JR Kyushu Blossom 寄放行李</div></li>
+              <li class="timeline-item"><span class="timeline-time">07:40</span><div class="timeline-content">步行至 Busta 新宿巴士總站，領取預約車票</div></li>
+              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">高速巴士出發 → 河口湖站（約 1 小時 45 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">10:00–12:00</span><div class="timeline-content">天上山纜車、富士見台散策，遠眺逆富士</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">午餐：ほうとう不動本店（山梨鄉土鍋麵）</div></li>
+              <li class="timeline-item"><span class="timeline-time">13:20–14:20</span><div class="timeline-content">大石公園花園步道＋湖畔拍照</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:40–15:40</span><div class="timeline-content">新倉富士淺間神社（忠靈塔）眺望富士山</div></li>
+              <li class="timeline-item"><span class="timeline-time">16:30</span><div class="timeline-content">搭巴士回程 → 18:30 抵達新宿</div></li>
+              <li class="timeline-item"><span class="timeline-time">19:00</span><div class="timeline-content">晚餐：思出橫丁燒鳥／風雲児拉麵／燒肉ライク</div></li>
             </ul>
-          </div>
-        </div>
-
-        <div class="day">
-          <h3>Day 4｜11/18（二）富士山・河口湖一日（新宿出發）</h3>
-          <div class="card">
-            <ul class="timeline">
-              <li class="timeline-item"><span class="timeline-time">07:30</span><div class="timeline-content">早餐後前往新宿南口 Busta</div></li>
-              <li class="timeline-item"><span class="timeline-time">08:00</span><div class="timeline-content">高速巴士至河口湖（約 1h45）或 JR 富士回遊號（約 2h05）</div></li>
-              <li class="timeline-item"><span class="timeline-time">10:00–12:00</span><div class="timeline-content">天上山纜車 → 山頂展望</div></li>
-              <li class="timeline-item"><span class="timeline-time">12:10–13:00</span><div class="timeline-content">午餐：ほうとう不動（山梨名物）</div></li>
-              <li class="timeline-item"><span class="timeline-time">13:20–14:20</span><div class="timeline-content">大石公園賞景</div></li>
-              <li class="timeline-item"><span class="timeline-time">14:40–15:40</span><div class="timeline-content">新倉富士淺間神社（忠靈塔）</div></li>
-              <li class="timeline-item"><span class="timeline-time">16:30–18:30</span><div class="timeline-content">返回新宿；晚餐建議拉麵／燒肉</div></li>
-            </ul>
+            <p class="note">若遇天候不佳，可改排富士急樂園或富士山世界遺產中心，並注意回程巴士班次。</p>
           </div>
         </div>
 
@@ -550,25 +571,28 @@
         </div>
 
         <div class="day">
-          <h3>Day 6｜11/20（四）六本木藝術日 → 打包整理</h3>
+          <h3>Day 6｜11/20（四）六本木藝術・東京塔・最後採買</h3>
           <div class="card">
             <ul class="timeline">
               <li class="timeline-item"><span class="timeline-time">09:30</span><div class="timeline-content">新宿 → 六本木（都營大江戶線）</div></li>
               <li class="timeline-item"><span class="timeline-time">10:00–12:00</span><div class="timeline-content">森美術館＋Tokyo City View＋毛利庭園</div></li>
-              <li class="timeline-item"><span class="timeline-time">12:00–13:00</span><div class="timeline-content">午餐：Eggcellent Café / TUSK Café</div></li>
-              <li class="timeline-item"><span class="timeline-time">下午</span><div class="timeline-content">新宿自由購物／整理行李（Check-out 11:00，可洽寄放）</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:15</span><div class="timeline-content">午餐：Eggcellent Café 或 TUSK Café，感受六本木商辦氛圍</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:00</span><div class="timeline-content">前往表參道或返回新宿購物（Lumine、Takashimaya、BicCamera 等）</div></li>
+              <li class="timeline-item"><span class="timeline-time">17:30</span><div class="timeline-content">傍晚散步至東京塔或登塔欣賞夜景</div></li>
+              <li class="timeline-item"><span class="timeline-time">19:00</span><div class="timeline-content">晚餐：新宿居酒屋或百貨外帶 → 回飯店整理行李</div></li>
             </ul>
           </div>
         </div>
 
         <div class="day">
-          <h3>Day 7｜11/21（五）新宿 → 成田 T2 → CI101（14:35 起飛）</h3>
+          <h3>Day 7｜11/21（五）新宿 → 成田機場 → 桃園（CI101）</h3>
           <div class="card">
             <ul class="timeline">
-              <li class="timeline-item"><span class="timeline-time">12:15–12:35</span><div class="timeline-content">目標抵達成田 T2（保留 2–3 小時辦理登機與安檢）</div></li>
-              <li class="timeline-item"><span class="timeline-time">方案 A</span><div class="timeline-content">N'EX 成田特快：新宿直達 T2（約 1h20）</div></li>
-              <li class="timeline-item"><span class="timeline-time">方案 B</span><div class="timeline-content">Skyliner：新宿 → 日暮里 → Skyliner 至 T2（約 1h05–1h15，需轉乘）</div></li>
-              <li class="timeline-item"><span class="timeline-time">方案 C</span><div class="timeline-content">機場巴士：Busta 新宿 → T2（約 90–120 分，視車況）</div></li>
+              <li class="timeline-item"><span class="timeline-time">09:30</span><div class="timeline-content">退房，飯店周邊享用早餐後拉行李前往交通點</div></li>
+              <li class="timeline-item"><span class="timeline-time">10:15</span><div class="timeline-content"><strong>交通建議：</strong> N'EX 成田特快（新宿直達 T2 約 80 分）或機場巴士（Busta 新宿發車，約 90–120 分）</div></li>
+              <li class="timeline-item"><span class="timeline-time">備選</span><div class="timeline-content">轉乘 Skyliner：新宿 → 日暮里（山手線）→ Skyliner 至 T2，約 65–75 分</div></li>
+              <li class="timeline-item"><span class="timeline-time">12:15–12:30</span><div class="timeline-content">目標抵達成田 T2，預留 2–3 小時辦理托運與安檢</div></li>
+              <li class="timeline-item"><span class="timeline-time">14:35</span><div class="timeline-content">CI101 成田 → 桃園 起飛，結束旅程</div></li>
             </ul>
             <p class="note">Busta 新宿距 Blossom 約步行 3 分鐘；旺季或壅塞時請預留更大緩衝。</p>
           </div>
